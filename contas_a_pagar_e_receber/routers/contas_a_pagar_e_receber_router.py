@@ -17,20 +17,20 @@ class ContaPagarReceberrequest(BaseModel):
     tipo: str #PAGAR ou Receber
 
 
-@router.get('/')
+@router.get('')
 def lista_contas():
     return [ContaPagarReceberResponse
             (id=1,
              descricao='Aluguel',
              valor=33.65,
              tipo='PAGAR'),
-            ContaPagarReceberResponse(id=1,
+            ContaPagarReceberResponse(id=2,
             descricao='Salario',
             valor=1233.65,
             tipo='RECEBER')
     ]
 
-@router.post('/', response_model=ContaPagarReceberResponse, status_code=201)
+@router.post('', response_model=ContaPagarReceberResponse, status_code=201)
 def criar_conta(conta: ContaPagarReceberrequest):
     return ContaPagarReceberResponse(
         id=3,
